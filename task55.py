@@ -107,7 +107,6 @@ def add_user(phone_book):
     description = input('Описание: ')
     newUser = {'Фамилия': lastname,'Имя': name, 'Телефон': number,'Описание': description}
     phone_book.append(newUser)
-    write_csv("phonebook.csv", phone_book)
     print('Новый контакт успешно добавлен\n')
 
 work_with_phonebook()
