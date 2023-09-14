@@ -14,9 +14,11 @@ def work_with_phonebook():
             last_name = input('Фамилия: ')
             new_number = input('Новый номер: ')
             change_number(phone_book, last_name, new_number)
+            write_csv("phonebook.csv", phone_book)
         elif choice == 4:
             lastname = input('Фамилия: ')
             delete_by_lastname(phone_book, lastname)
+            write_csv("phonebook.csv", phone_book)
         elif choice == 5:
             number = input('Номер: ')
             print(find_by_number(phone_book, number))
@@ -80,7 +82,6 @@ def change_number(phone_book, last_name, new_number):
     for line in phone_book:
         if line['Фамилия'] == last_name:
             line.update(Телефон=new_number)
-        write_csv("phonebook.csv", phone_book)
     return(print("Номер успешно изменен\n"))        
 
 
@@ -88,7 +89,6 @@ def delete_by_lastname(phone_book, last_name):
     for line in phone_book:
         if line['Фамилия'] == last_name:
             line.clear()
-    write_csv("phonebook.csv", phone_book)
     return print("Запись удалена\n")
 
 
